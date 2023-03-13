@@ -1,0 +1,417 @@
+_type: export
+__export_format: 4
+__export_date: 2023-03-13T15:46:37.398Z
+__export_source: insomnia.desktop.app:v2022.4.0
+resources:
+  - _id: req_468d1c10fddf43e6b2d3c97115de16f9
+    parentId: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    modified: 1678720498298
+    created: 1674940022875
+    url: http://localhost:8080/login
+    name: /login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"login": "admin@med.voll.com",
+        	"senha": "senha"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_4632f8b196284571a36ff6df3831897c
+    authentication: {}
+    metaSortKey: -1678720069623
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    parentId: null
+    modified: 1674925648100
+    created: 1674925648100
+    name: API
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_2ff446229d7541c7abd5b1669fbf7890
+    parentId: fld_64b2ad5022e14a28acc405b40dbc4828
+    modified: 1678722060798
+    created: 1678721520316
+    url: http://localhost:8080/pacientes
+    name: cadastrar
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Paciente de Teste",
+        	"email": "paciente@med.voll.com",
+        	"telefone": "1234-5678",
+        	"cpf": "123.456.789-10",
+        	"endereco": {
+        		"logradouro": "Rua de testes",
+        		"bairro": "bairro",
+        		"cep": "12345678",
+        		"cidade": "Cidade",
+        		"uf": "UF",
+        		"complemento": "Complemento",
+        		"numero": "123"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ca7f74aace5a4f74bdf768bae4d8c6ac
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1678721520316
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_64b2ad5022e14a28acc405b40dbc4828
+    parentId: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    modified: 1678720069572
+    created: 1678720069572
+    name: /pacientes
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678720069573
+    _type: request_group
+  - _id: req_3c06e35ea28b481792cd7d319c4c093f
+    parentId: fld_64b2ad5022e14a28acc405b40dbc4828
+    modified: 1678722065115
+    created: 1678721580234
+    url: http://localhost:8080/pacientes
+    name: listar
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1678721520266
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_59af942741f244079513adee5fa9efe2
+    parentId: fld_64b2ad5022e14a28acc405b40dbc4828
+    modified: 1678722044049
+    created: 1678721606029
+    url: http://localhost:8080/pacientes/1
+    name: atualizar
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": 1,
+        	"nome": "Paciente de Teste",
+        	"telefone": "1234-5678",
+        	"endereco": {
+        		"logradouro": "Rua de testes",
+        		"bairro": "bairro",
+        		"cep": "12345678",
+        		"cidade": "Cidade",
+        		"uf": "UF",
+        		"complemento": "Complemento",
+        		"numero": "123"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_809a4c3f66144f4fb764899c4c67e137
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1678720794944.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_423977667a494d52964169e10573d00d
+    parentId: fld_64b2ad5022e14a28acc405b40dbc4828
+    modified: 1678721828679
+    created: 1678721639951
+    url: http://localhost:8080/pacientes/1
+    name: excluir
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1678720432283.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d6bcb45969834c4582be92dc41436b9b
+    parentId: fld_64b2ad5022e14a28acc405b40dbc4828
+    modified: 1678721803280
+    created: 1678721652521
+    url: http://localhost:8080/pacientes/1
+    name: detalhar
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1678720250953.375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c2b0e38230454f5e84eb9a404afd8ba4
+    parentId: fld_0af70e437a6444e88e48d0d30a332d39
+    modified: 1678721901942
+    created: 1678720533637
+    url: http://localhost:8080/medicos
+    name: cadastrar
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Medico de Teste",
+        	"email": "medico@med.voll.com",
+        	"telefone": "1234-5678",
+        	"crm": "09876",
+        	"especialidade": "ORTOPEDIA",
+        	"endereco": {
+        		"logradouro": "Rua de testes",
+        		"bairro": "bairro",
+        		"cep": "12345678",
+        		"cidade": "Cidade",
+        		"uf": "UF",
+        		"complemento": "Complemento",
+        		"numero": "123"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_4f95f40137f943d79da11724ebecb106
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1674941395038
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0af70e437a6444e88e48d0d30a332d39
+    parentId: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    modified: 1678720028785
+    created: 1678720028785
+    name: /medicos
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678720028785
+    _type: request_group
+  - _id: req_5c2452aa50de4b4db5afb180c5f804b6
+    parentId: fld_0af70e437a6444e88e48d0d30a332d39
+    modified: 1678721012565
+    created: 1674941394988
+    url: http://localhost:8080/medicos
+    name: listar
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1674941394988
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_22f1bfdb0c9d4635b173a325a9627719
+    parentId: fld_0af70e437a6444e88e48d0d30a332d39
+    modified: 1678721238743
+    created: 1678721149547
+    url: http://localhost:8080/medicos
+    name: atualizar
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": 1,
+        	"nome": "Medico de Teste",
+        	"telefone": "1234-5678",
+        	"endereco": {
+        		"logradouro": "Rua de testes",
+        		"bairro": "bairro",
+        		"cep": "12345678",
+        		"cidade": "Cidade",
+        		"uf": "UF",
+        		"complemento": "Complemento",
+        		"numero": "123"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_4f95f40137f943d79da11724ebecb106
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1674941394938
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_52689830e8e3439e80515841bcf94d49
+    parentId: fld_0af70e437a6444e88e48d0d30a332d39
+    modified: 1678721298258
+    created: 1678721282156
+    url: http://localhost:8080/medicos/1
+    name: excluir
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1674941394888
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b62cf42d498d4149acda46fcb1f11cd1
+    parentId: fld_0af70e437a6444e88e48d0d30a332d39
+    modified: 1678721331239
+    created: 1678721325945
+    url: http://localhost:8080/medicos/1
+    name: detalhar
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_468d1c10fddf43e6b2d3c97115de16f9',
+        'b64::JC50b2tlbg==::46b', 'when-expired', 7200 %}"
+    metaSortKey: -1673862920601.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_836827cfb57586a38e2a5f32f72618bcdd141bbf
+    parentId: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    modified: 1674925648106
+    created: 1674925648106
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1674925648107
+    _type: environment
+  - _id: jar_836827cfb57586a38e2a5f32f72618bcdd141bbf
+    parentId: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    modified: 1674941434172
+    created: 1674925648108
+    name: Default Jar
+    cookies:
+      - key: JSESSIONID
+        value: BD4938174A9E32E0EA6B7560DC9FA0CD
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2023-01-28T21:09:57.266Z
+        lastAccessed: 2023-01-28T21:30:34.171Z
+        id: "4626356610001521"
+    _type: cookie_jar
+  - _id: spc_45189216d8d8495f82edc4d6a5c004b5
+    parentId: wrk_0e1fa0d879314755a78b12d9b29f89d4
+    modified: 1674925648102
+    created: 1674925648102
+    fileName: API
+    contents: ""
+    contentType: yaml
+    _type: api_spec
