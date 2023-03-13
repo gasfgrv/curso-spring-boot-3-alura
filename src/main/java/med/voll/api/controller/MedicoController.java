@@ -1,7 +1,6 @@
 package med.voll.api.controller;
 
 
-
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import med.voll.api.domain.medico.DadosAtualizacaoMedico;
@@ -26,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("medicos")
+@RequestMapping("/medicos")
 @RequiredArgsConstructor
 public class MedicoController {
 
@@ -38,17 +37,13 @@ public class MedicoController {
                                                              UriComponentsBuilder uriBuilder) {
         var medico = new Medico(dados);
         repository.save(medico);
-        var uri = uriBuilder.path("/medicos/{id}")
-                .buildAndExpand(medico.getId())
-                .toUri();
-        return ResponseEntity.created(uri)
-                .body(new DadosDetalhamentoMedico(medico));
+        var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
 
     @GetMapping
     public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(sort = {"nome"}) Pageable paginacao) {
-        var page = repository.findAllByAtivoTrue(paginacao)
-                .map(DadosListagemMedico::new);
+        var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
         return ResponseEntity.ok(page);
     }
 
