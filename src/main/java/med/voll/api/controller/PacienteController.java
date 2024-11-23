@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/pacientes")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "auth-token")
 public class PacienteController {
 
     private final PacienteRepository repository;

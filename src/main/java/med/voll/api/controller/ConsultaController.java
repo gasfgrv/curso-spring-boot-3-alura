@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import med.voll.api.domain.consulta.AgendaDeConsultas;
@@ -18,6 +19,7 @@ import med.voll.api.domain.consulta.DadosDetalhamentoConsulta;
 @RestController
 @RequestMapping("/consultas")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "auth-token")
 public class ConsultaController {
 
     private final AgendaDeConsultas agenda;
